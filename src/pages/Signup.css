@@ -1,0 +1,41 @@
+.google-btn {
+  flex-direction: row-reverse; /* Reverse the order */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  color: #333333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.google-btn img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.google-btn:hover {
+  background-color: #f1f1f1;
+}
+
+
+.english-input {
+  direction: ltr;
+  text-align: left;
+}
+
+
+.signup-page {
+  background: linear-gradient(135deg,
+  #85D8CE 0%, 
+  #9BBFE6 25%, 
+  #BFA8E6 50%, 
+  #b9e8f5 75%, 
+  #FFFFFF 100%);
+  height: 100vh;
+}
