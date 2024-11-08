@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/submachine-website/static/css/main.87a476c5.css",
+    "main.js": "/submachine-website/static/js/main.0819b29a.js",
+    "static/js/453.9bfe00e5.chunk.js": "/submachine-website/static/js/453.9bfe00e5.chunk.js",
+    "static/media/image3.png": "/submachine-website/static/media/image3.ed72051a51e64664bd25.png",
+    "static/media/submachine-logo-text-no-bg.png": "/submachine-website/static/media/submachine-logo-text-no-bg.d8c89cfa5899ad20158a.png",
+    "static/media/slider-left-dec.png": "/submachine-website/static/media/slider-left-dec.b1741c68c43d7f9a1322.png",
+    "static/media/footer-bg.png": "/submachine-website/static/media/footer-bg.7d736a591de6c328f321.png",
+    "static/media/cc-no-bg.png": "/submachine-website/static/media/cc-no-bg.1fb57305a5b00514f3dd.png",
+    "index.html": "/submachine-website/index.html",
+    "main.87a476c5.css.map": "/submachine-website/static/css/main.87a476c5.css.map",
+    "main.0819b29a.js.map": "/submachine-website/static/js/main.0819b29a.js.map",
+    "453.9bfe00e5.chunk.js.map": "/submachine-website/static/js/453.9bfe00e5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87a476c5.css",
+    "static/js/main.0819b29a.js"
+  ]
+}
