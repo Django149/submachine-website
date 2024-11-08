@@ -56,7 +56,6 @@ function App() {
       {" "}
       {/* Set RTL direction here */}
       <Router>
-        <Preloader />
         <ScrollToTop>
           <AuthProvider>
             <ConditionalHeader />
