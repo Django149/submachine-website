@@ -34,11 +34,11 @@ function ScrollToHash() {
 
 function ConditionalHeader() {
   const location = useLocation()
-  if (location.pathname === "/") {
+  if (location.pathname === "/submachine-website") {
     return <HomeHeader />
   }
 
-  if (location.pathname === "/dashboard") {
+  if (location.pathname === "/submachine-website/dashboard") {
     return <DashboardHeader />
   }
 
