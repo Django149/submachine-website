@@ -1,0 +1,262 @@
+=== "block" ? "none" : "block"
+  }
+
+  return (
+    <div>
+      <div
+        id="home"
+        class="main-banner wow fadeIn"
+        data-wow-duration="1s"
+        data-wow-delay="0.5s"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-6 align-self-center">
+                  <div
+                    class="left-content show-up header-text wow fadeInLeft"
+                    data-wow-duration="1s"
+                    data-wow-delay="1s"
+                  >
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h2>כתוביות אוטומטיות בעברית עבור Premiere Pro</h2>
+                        <p>אנחנו SubMachine יוצרי הכתוביות הכי טובים בארץ</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div
+                    class="right-image wow fadeInRight"
+                    data-wow-duration="1s"
+                    data-wow-delay="0.5s"
+                  >
+                    <img src={sliderDec} alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="services" class="services section">
+        <div class="container">
+          <div class="row">
+            <div class="offset-lg-2">
+              <div
+                class="section-heading  wow fadeInDown"
+                data-wow-duration="1s"
+                data-wow-delay="0.5s"
+              >
+                <h4>
+                  מגוון רחב של <em>שירותים</em>
+                </h4>
+                <img src={headingLineDec} alt="" />
+                <p>
+                  שדרג את ייצור הווידאו שלך עם כתוביות אוטומטיות ומדויקות ישירות
+                  ב-Premiere Pro
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="services-container">
+          <div class="services-row">
+            <div class="service-item first-service">
+              <div class="icon"></div>
+              <h4>תחזוקת האפליקציה</h4>
+              <p>
+                עדכונים ושיפורים רציפים מבטיחים איכות ותפקוד ברמה הגבוהה ביותר
+                לכל הפרויקטים שלך.
+              </p>
+            </div>
+            <div class="service-item second-service">
+              <div class="icon"></div>
+              <h4>דיוק בלתי רגיל</h4>
+              <p>
+                אנחנו מציעים תרגום עם רמת דיוק מעולה של קרוב ל 100 אחוזי הצלחה.
+              </p>
+            </div>
+            <div class="service-item fourth-service">
+              <div class="icon"></div>
+              <h4>תמיכה</h4>
+              <p>אנחנו זמינים כדי לסייע בכל שאלה או בעיה שעולה.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pricing" class="pricing-tables">
+        <div class="container">
+          <div class="row">
+            <div class="offset-lg-2">
+              <div class="section-heading">
+                <h4>
+                  יש לנו את <em>התמחור</em> הכי טוב שתקבלו
+                </h4>
+                <img src={headingLineDec} alt="" />
+                <p>לא משנה איזה סוג של עורך אתם, יש לנו תמחור פשוט עבורכם</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pricing-item-regular">
+                <span class="price">$12</span>
+                <h4>עורך מתחיל</h4>
+                <div class="icon">
+                  <img src={ccImage} alt="" />
+                </div>
+                <ul>
+                  <li>עד 30 דקות תמלול כל חודש</li>
+                  <li>תמיכה בכמה עורכים במקביל</li>
+                  <li>כתוביות בעברית</li>
+                  <li>תמיכה בפרימייר</li>
+                </ul>
+                <div class="border-button">
+                  <a href="#">קנו עכשיו</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pricing-item-pro">
+                <span class="price">$25</span>
+                <h4 class="plan-name">עורך מקצועי</h4>
+                <div class="icon">
+                  <img src={ccImage} alt="" />
+                </div>
+                <ul>
+                  <li>עד 120 דקות תמלול כל חודש</li>
+                  <li>תמיכה בכמה עורכים במקביל</li>
+                  <li>כתוביות בעברית</li>
+                  <li>תמיכה בפרימייר</li>
+                </ul>
+                <div class="border-button">
+                  <a href="#">קנו עכשיו</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pricing-item-regular">
+                <span class="price">$66</span>
+                <h4 class>עורך פרימיום</h4>
+                <div class="icon">
+                  <img src={ccImage} alt="" />
+                </div>
+                <ul>
+                  <li>עד 500 דקות תמלול כל חודש</li>
+                  <li>תמיכה בכמה עורכים במקביל</li>
+                  <li>כתוביות בעברית</li>
+                  <li>תמיכה בפרימייר</li>
+                </ul>
+                <div class="border-button">
+                  <a href="#">קנו עכשיו</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="faq" className="faq-section section">
+        <div className="container">
+          <div
+            className="section-heading wow fadeInDown"
+            data-wow-duration="1s"
+            data-wow-delay="0.5s"
+          >
+            <h4>
+              <em>שאלות נפוצות</em>
+            </h4>
+            <img src={headingLineDec} alt="" />
+            <p>כאן תוכלו למצוא תשובות לשאלות הנפוצות ביותר של לקוחותינו</p>
+          </div>
+
+          <div className="faq-container" dir="rtl">
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(1)}>
+                כמה מדוייק הכתוביות שיוצאות?
+              </h4>
+              <div className="faq-answer" id="faq1">
+                לחלוטין תלוי באיכות ההקלטה והסאונד, בדרך כלל הדיוק הוא עד 98% עם
+                הקלטות טובות. ו85% באיכות סאונד סבירה.
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(2)}>
+                האם אוכל לנסות את המוצר לפני שאקנה?
+              </h4>
+              <div className="faq-answer" id="faq2">
+                ברור. לאחר הרשמה והתקנה של הפלאגין, יהיו לכם כמה דקות תמלול חינם
+                להתנסות, עלינו.
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(3)}>
+                איך מתקינים?
+              </h4>
+              <div className="faq-answer" id="faq3">
+                בעמוד החשבון שלכם תוכלו למצוא את הוראות ההתקנה
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(4)}>
+                באילו תוכנות עריכה יש תמיכה?
+              </h4>
+              <div className="faq-answer" id="faq4">
+                תומכים בפרמייר ובקרוב גם באפטר אפקטס
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(5)}>
+                אני עובד בחברה עם כמה עורכים, האם כולנו נוכל להשתמש ב SubMacine
+                במקביל?
+              </h4>
+              <div className="faq-answer" id="faq5">
+                אצלנו בכל תוכנית אפשר להשתמש ב SubMacine בו זמנית
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(6)}>
+                יש לי Mac
+              </h4>
+              <div className="faq-answer" id="faq6">
+                עובד גם על Mac וגם על Windows.
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(7)}>
+                מה ההבדל בינכם לבין מתחרים?
+              </h4>
+              <div className="faq-answer" id="faq7">
+                ישנם שני הבדלים ניכרים מאוד בינינו לבין מתחרים. איכות התמלול
+                בעברית, סביבת הפרימייר שמתאימה במיוחד לעורכים מקצועיים בדיוק
+                בסביבת העבודה שלהם והכי חשוב - מחירים זולים במיוחד
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(8)}>
+                האם אני יכול לבטל את המנוי בכל עת?
+              </h4>
+              <div className="faq-answer" id="faq8">
+                כמובן, אין אצלנו שום התחייבות.
+              </div>
+            </div>
+            <div className="faq-item">
+              <h4 className="faq-question" onClick={() => toggleFaq(9)}>
+                למי עלי לפנות כדי לקבל תמיכה?
+              </h4>
+              <div className="faq-answer" id="faq9">
+                שחר ואופק נציגי השירות שלנו ישמח לעזור לכם בכל בעיה שתהיה. ניתן
+                לפנות אלינו באימייל submachine100@gmail.com או בטלפון ******{" "}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Home
+
+

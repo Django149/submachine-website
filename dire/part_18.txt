@@ -1,3 +1,4 @@
+=== ./src\pages\Login.css ===
 .google-btn {
     flex-direction: row-reverse; /* Reverse the order */
 
@@ -39,5 +40,9 @@
     height: 100vh;
 }
   
+
+.card-bg {
+    background-color: #757575d6;
+}
 
 

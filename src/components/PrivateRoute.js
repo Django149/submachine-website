@@ -1,12 +1,12 @@
-import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext'; // Context you create for auth
+import React from "react"
+import { Navigate } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext"
 
 const PrivateRoute = ({ children }) => {
-  const { currentUser } = useAuth();  // Get the current user from context
-  console.log("CurrentUser:", currentUser);
+  const { currentUser } = useAuth()
+  console.log("CurrentUser:", currentUser)
 
-  return currentUser ? children : <Navigate to="/login" />;
-};
+  return currentUser ? children : <Navigate to="/login" />
+}
 
-export default PrivateRoute;
+export default PrivateRoute

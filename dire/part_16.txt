@@ -1,0 +1,27 @@
+=== ./src\pages\Home.js ===
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import "./Home.css" // Ensure you have some basic styles for buttons
+import sliderDec from "../assets/images/image3.png"
+import "../Responsive.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "../animated.css"
+import headingLineDec from "../assets/images/heading-line-dec.png"
+import ccImage from "../assets/images/cc-no-bg.png"
+import Accordion from "react-bootstrap/Accordion"
+
+/**
+ * Represents the Home component.
+ * @returns {JSX.Element} The rendered Home component.
+ */
+const Home = () => {
+  const navigate = useNavigate()
+
+  const handlePlanSelect = (planType) => {
+    // You might navigate to a URL that includes the planType
+    navigate(`/plans/${planType}`)
+  }
+
+  const toggleFaq = (index) => {
+    const answer = document.getElementById(`faq${index}`)
+    answer.style.display = answer.style.display 

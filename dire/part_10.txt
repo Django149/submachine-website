@@ -1,11 +1,12 @@
+=== ./src\components\HomeHeader.js ===
 import React, { useState, useEffect, useCallback } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { auth } from "../services/firebase-config"
 import { signOut } from "firebase/auth"
 import logo from "../assets/images/submachine-logo-text-no-bg.png"
-import "../styles/HomeHeader.css"
-import "../styles/Responsive.css"
-import "../styles/animated.css"
+import "./HomeHeader.css"
+import "../Responsive.css"
+import "../animated.css"
 
 const HomeHeader = () => {
   const [isSticky, setIsSticky] = useState(false)
@@ -131,6 +132,14 @@ const HomeHeader = () => {
                   </div>
                 </li>
               </ul>
+              <button
+                className={`menu-trigger ${menuActive ? "active" : ""}`}
+                onClick={toggleMenu}
+                aria-label="Toggle Menu"
+                aria-expanded={menuActive}
+              >
+                <span></span>
+              </button>
             </nav>
           </div>
         </div>
@@ -140,3 +149,5 @@ const HomeHeader = () => {
 }
 
 export default HomeHeader
+
+

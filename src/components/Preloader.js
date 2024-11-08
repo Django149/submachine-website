@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import './Preloader.css';
+import React, { useEffect, useState } from "react"
+import "../styles/Preloader.css"
 
 const Preloader = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     // Wait for the window to load, then set loading to false
     window.onload = () => {
-      setLoading(false);
-    };
-  }, []);
+      setLoading(false)
+    }
+  }, [])
 
   return (
     loading && (
@@ -24,7 +24,7 @@ const Preloader = () => {
         </div>
       </div>
     )
-  );
-};
+  )
+}
 
-export default Preloader;
+export default Preloader

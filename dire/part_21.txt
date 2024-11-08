@@ -1,0 +1,136 @@
+=== ./src\services\authService.js ===
+// src/services/authService.js
+import { auth, googleProvider } from "./firebase-config"
+import {
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+} from "firebase/auth"
+import { createNewUser } from "./realtimeDatabaseService"
+
+export { auth } // Add this line to export the auth object
+
+// Function for signing in with Google
+export const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, googleProvider)
+    const user = result.user
+    return user
+  } catch (error) {
+    console.error("Google Auth Error: ", error)
+    throw error
+  }
+}
+
+// Function to sign up with email and password
+export const signup = async (email, password) => {
+  try {
+    console.log("creating account: email: " + email + "password:" + password)
+    const result = await createUserWithEmailAndPassword(auth, email, password)
+    await createNewUser(result.user.uid)
+    return result.user
+  } catch (error) {
+    console.error("Signup Error: ", error)
+    throw error
+  }
+}
+
+// Function to sign in with email and password
+export const login = async (email, password) => {
+  try {
+    console.log(
+      "logging in to account: email: " + email + "password:" + password
+    )
+    const result = await signInWithEmailAndPassword(auth, email, password)
+    return result.user
+  } catch (error) {
+    console.error("Login Error: ", error)
+    throw error
+  }
+}
+
+// Function to sign out
+export const logout = async () => {
+  try {
+    await signOut(auth)
+  } catch (error) {
+    console.error("Logout Error: ", error)
+    throw error
+  }
+}
+
+// Function to send password reset email
+export const resetPassword = async (email) => {
+  try {
+    await sendPasswordResetEmail(auth, email)
+  } catch (error) {
+    console.error("Password Reset Error: ", error)
+    throw error
+  }
+}
+
+
+=== ./src\services\firebase-config.js ===
+import { initializeApp } from "firebase/app"
+import { getAuth, GoogleAuthProvider } from "firebase/auth"
+import { getDatabase } from "firebase/database"
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  databaseURL:
+    "https://first-react-firebase-pro-9c51f-default-rtdb.europe-west1.firebasedatabase.app/",
+}
+
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
+const googleProvider = new GoogleAuthProvider()
+const database = getDatabase(app)
+
+export { auth, googleProvider, database }
+
+
+=== ./src\services\realtimeDatabaseService.js ===
+import { ref, get, set } from "firebase/database"
+import { database } from "./firebase-config"
+
+export const fetchUserData = async (userId) => {
+  try {
+    const userRef = ref(database, `users/${userId}`)
+    const snapshot = await get(userRef)
+    if (snapshot.exists()) {
+      return snapshot.val()
+    } else {
+      return null
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error)
+    return null
+  }
+}
+
+export const createNewUser = async (userId) => {
+  try {
+    const userRef = ref(database, `users/${userId}`)
+    await set(userRef, {
+      planName: "basic",
+      timeLeft: 15,
+    })
+    console.log(
+      "User created in realtime database with default plan and time left"
+    )
+    return true
+  } catch (error) {
+    console.error("Error creating user in realtime database:", error)
+    return false
+  }
+}
+
+

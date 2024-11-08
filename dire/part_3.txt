@@ -1,0 +1,175 @@
+=== ./src\App.css ===
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+=== ./src\App.js ===
+import React, { useEffect } from "react"
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom"
+import { AuthProvider } from "./contexts/AuthContext" // Import the AuthProvider
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
+import Dashboard from "./pages/Dashboard"
+import HomeHeader from "./components/HomeHeader"
+import DashboardHeader from "./components/DashboardHeader"
+import Footer from "./components/Footer"
+import Preloader from "./components/Preloader"
+import PrivateRoute from "./components/PrivateRoute"
+import ScrollToTop from "./components/ScrollToTop"
+
+function ScrollToHash() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.slice(1))
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }, [location])
+
+  return null
+}
+
+function ConditionalHeader() {
+  const location = useLocation()
+  if (location.pathname === "/") {
+    return <HomeHeader />
+  }
+
+  if (location.pathname === "/dashboard") {
+    return <DashboardHeader />
+  }
+
+  return null
+}
+
+/**
+ * The main component of the application.
+ *
+ * @returns {JSX.Element} The rendered App component.
+ */
+function App() {
+  return (
+    <div dir="rtl">
+      {" "}
+      {/* Set RTL direction here */}
+      <Router>
+        <Preloader />
+        <ScrollToTop>
+          <AuthProvider>
+            <ConditionalHeader />
+            <ScrollToHash />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </AuthProvider>
+        </ScrollToTop>
+      </Router>
+    </div>
+  )
+}
+
+export default App
+
+
+=== ./src\App.test.js ===
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+=== ./src\index.css ===
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+=== ./src\index.js ===
+import React from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
+import App from "./App"
+import reportWebVitals from "./reportWebVitals"
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals()
+
+

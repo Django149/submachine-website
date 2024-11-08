@@ -1,0 +1,92 @@
+/* ---------------------------------------------
+Button Styles
+--------------------------------------------- */
+.white-button a,
+.gradient-button a,
+.border-button a,
+.text-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  font-size: 15px;
+  border-radius: 23px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.5s;
+}
+
+.white-button a {
+  color: #4b8ef1;
+  background-color: #fff;
+}
+
+.white-button a:hover {
+  background-color: #4b8ef1;
+  color: #fff !important;
+}
+
+.gradient-button a {
+  color: #fff;
+  background: linear-gradient(105deg, rgba(91,104,235,1) 0%, rgba(40,225,253,1) 100%);
+}
+
+.gradient-button a:hover {
+  background: linear-gradient(105deg, rgba(91,104,235,1) 0%, rgba(40,225,253,1) 100%);
+  color: #fff;
+}
+
+.border-button a {
+  color: #4b8ef1;
+  border: 1px solid #4b8ef1;
+  background-color: #fff;
+}
+
+.border-button a:hover {
+  background-color: #4b8ef1;
+  color: #fff !important;
+}
+
+.text-button a {
+  color: inherit;
+}
+
+.text-button a i {
+  margin-left: 5px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.text-button a:hover i {
+  margin-left: 8px;
+}
+
+/* Google Button Specific Styles */
+.google-btn {
+  flex-direction: row-reverse;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  color: #333333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.google-btn img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.google-btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* English Input Specific Styles */
+.english-input {
+  direction: ltr;
+  text-align: left;
+}

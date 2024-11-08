@@ -1,13 +1,56 @@
+=== ./src\pages\Signup.css ===
+.google-btn {
+  flex-direction: row-reverse; /* Reverse the order */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  color: #333333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.google-btn img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.google-btn:hover {
+  background-color: #f1f1f1;
+}
+
+
+.english-input {
+  direction: ltr;
+  text-align: left;
+}
+
+
+.signup-page {
+  background: linear-gradient(135deg,
+  #85D8CE 0%, 
+  #9BBFE6 25%, 
+  #BFA8E6 50%, 
+  #b9e8f5 75%, 
+  #FFFFFF 100%);
+  height: 100vh;
+}
+
+.card-bg {
+  background-color: #757575d6;
+}
+
+=== ./src\pages\Signup.js ===
 import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
 import logo from "../assets/images/submachine-logo-text-no-bg.png"
-import "../styles/Signup.css"
-import "../styles/Global.css"
-import "../styles/Buttons.css"
-import "../styles/Responsive.css"
-import "../styles/animated.css"
-
+import "./Signup.css"
 /**
  * SignupForm component for user registration.
  *
@@ -26,7 +69,6 @@ const SignupForm = () => {
       navigate("/dashboard")
     } catch (error) {
       console.error("Error signing up: ", error.message)
-      // Optionally, display error to user
     }
   }
 
@@ -36,7 +78,6 @@ const SignupForm = () => {
       navigate("/dashboard")
     } catch (error) {
       console.error("Error signing up with Google: ", error.message)
-      // Optionally, display error to user
     }
   }
 
@@ -47,49 +88,49 @@ const SignupForm = () => {
           <div className="col-lg-6">
             <div className="card-bg shadow-sm">
               <div className="card-body p-4">
-                <div className="mb-4 d-flex justify-content-center">
+                <div className="mb-4 text-center">
                   <Link to="/">
                     <img
                       src={logo}
                       alt="Submachine Logo"
                       className="mb-2"
-                      style={{ width: "150px" }}
+                      style={{ height: "auto", width: "400px" }}
                     />
                   </Link>
                 </div>
-                <h4 className="text-center fs-1">צור חשבון חדש</h4>
+                <h4 className="text-center fs-2">צור חשבון חדש</h4>
                 <div className="text-center mt-2">
                   <p>
                     כבר יש לך חשבון? <Link to="/login">התחבר</Link>
                   </p>
                 </div>
-                <form className="pt-4" onSubmit={handleSignup}>
-                  <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">אימייל</label>
+                <form class="pt-4" onSubmit={handleSignup}>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">אימייל</label>
                     <input
                       type="email"
-                      className="form-control english-input mb-4"
+                      class="form-control english-input mb-4"
                       id="exampleInputEmail1"
                       placeholder="you@example.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
+                      onChange={(event) => {
+                        setEmail(event.target.value)
+                      }}
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">סיסמא</label>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">סיסמא</label>
                     <input
                       type="password"
-                      className="form-control english-input"
+                      class="form-control english-input"
                       id="exampleInputPassword1"
                       placeholder="*******"
                       aria-describedby="passwordHelp"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
+                      onChange={(event) => {
+                        setPassword(event.target.value)
+                      }}
                     />
                   </div>
-                  <small id="passwordHelp" className="form-text text-muted">
+                  <small id="passwordHelp" class="form-text text-muted">
                     הסיסמא שלכם צריכה להיות בת 6 תווים לפחות
                   </small>
 
@@ -103,7 +144,7 @@ const SignupForm = () => {
                   <div className="flex-grow-1 border-top border-secondary"></div>
                 </div>
                 <div className="d-flex justify-content-center">
-                  <button className="google-btn" onClick={handleGoogleSignup}>
+                  <button class="google-btn" onClick={handleGoogleSignup}>
                     <img
                       src="https://img.icons8.com/color/48/000000/google-logo.png"
                       alt="Google Logo"
@@ -121,3 +162,5 @@ const SignupForm = () => {
 }
 
 export default SignupForm
+
+

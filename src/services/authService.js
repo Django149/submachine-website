@@ -4,14 +4,18 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
+  signOut as firebaseSignOut,
   sendPasswordResetEmail,
 } from "firebase/auth"
 import { createNewUser } from "./realtimeDatabaseService"
 
-export { auth } // Add this line to export the auth object
+export { auth }
 
-// Function for signing in with Google
+/**
+ * Signs in a user with Google.
+ *
+ * @returns {Promise<Object>} The authenticated user.
+ */
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider)
@@ -23,10 +27,15 @@ export const signInWithGoogle = async () => {
   }
 }
 
-// Function to sign up with email and password
+/**
+ * Signs up a user with email and password.
+ *
+ * @param {string} email - User's email.
+ * @param {string} password - User's password.
+ * @returns {Promise<Object>} The authenticated user.
+ */
 export const signup = async (email, password) => {
   try {
-    console.log("creating account: email: " + email + "password:" + password)
     const result = await createUserWithEmailAndPassword(auth, email, password)
     await createNewUser(result.user.uid)
     return result.user
@@ -36,12 +45,15 @@ export const signup = async (email, password) => {
   }
 }
 
-// Function to sign in with email and password
+/**
+ * Logs in a user with email and password.
+ *
+ * @param {string} email - User's email.
+ * @param {string} password - User's password.
+ * @returns {Promise<Object>} The authenticated user.
+ */
 export const login = async (email, password) => {
   try {
-    console.log(
-      "logging in to account: email: " + email + "password:" + password
-    )
     const result = await signInWithEmailAndPassword(auth, email, password)
     return result.user
   } catch (error) {
@@ -50,17 +62,26 @@ export const login = async (email, password) => {
   }
 }
 
-// Function to sign out
+/**
+ * Logs out the current user.
+ *
+ * @returns {Promise<void>}
+ */
 export const logout = async () => {
   try {
-    await signOut(auth)
+    await firebaseSignOut(auth)
   } catch (error) {
     console.error("Logout Error: ", error)
     throw error
   }
 }
 
-// Function to send password reset email
+/**
+ * Sends a password reset email to the specified email address.
+ *
+ * @param {string} email - User's email.
+ * @returns {Promise<void>}
+ */
 export const resetPassword = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email)

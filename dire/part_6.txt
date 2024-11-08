@@ -1,14 +1,28 @@
+=== ./src\setupTests.js ===
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+
+=== ./src\assets\caption.svg ===
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="caption"><g data-name="Layer 2"><path d="M27,6H5A3,3,0,0,0,2,9V23a3,3,0,0,0,3,3H27a3,3,0,0,0,3-3V9A3,3,0,0,0,27,6Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V9A1,1,0,0,1,5,8H27a1,1,0,0,1,1,1Z"></path><path d="M11 13h2a1 1 0 000-2H11a3 3 0 00-3 3v4a3 3 0 003 3h2a1 1 0 000-2H11a1 1 0 01-1-1V14A1 1 0 0111 13zM21 13h2a1 1 0 000-2H21a3 3 0 00-3 3v4a3 3 0 003 3h2a1 1 0 000-2H21a1 1 0 01-1-1V14A1 1 0 0121 13z"></path></g></svg>
+
+=== ./src\components\DashboardHeader.css ===
+
+
+=== ./src\components\DashboardHeader.js ===
 import React, { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { auth } from "../services/firebase-config"
 import { signOut } from "firebase/auth"
 import logo from "../assets/images/submachine-logo-text-no-bg.png"
-import "../styles/Global.css"
-import "../styles/DashboardHeader.css"
-import "../styles/Responsive.css"
-import "../styles/animated.css"
+import "./HomeHeader.css"
+import "../Responsive.css"
+import "../animated.css"
 
-const DashboardHeader = () => {
+const HomeHeader = () => {
   const [isSticky, setIsSticky] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false) // State to track login status
   const location = useLocation()
@@ -101,6 +115,9 @@ const DashboardHeader = () => {
                   </div>
                 </li>
               </ul>
+              <a className="menu-trigger">
+                <span>Menu</span>
+              </a>
             </nav>
           </div>
         </div>
@@ -109,4 +126,6 @@ const DashboardHeader = () => {
   )
 }
 
-export default DashboardHeader
+export default HomeHeader
+
+

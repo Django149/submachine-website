@@ -1,27 +1,24 @@
+=== ./src\pages\Dashboard.js ===
 import React, { useEffect, useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
 import { fetchUserData } from "../services/realtimeDatabaseService"
-import "../styles/Dashboard.css"
-import "../styles/Global.css"
-import "../styles/Responsive.css"
-import "react-vertical-timeline-component/style.min.css"
+import "./Dashboard.css"
+import headingLineDec from "../assets/images/heading-line-dec.png"
+import { ProgressBar } from "react-bootstrap"
+import "../Responsive.css"
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
-import { MdDownload } from "react-icons/md"
+import "react-vertical-timeline-component/style.min.css"
+import { MdWork, MdDownload } from "react-icons/md"
 import { IoExtensionPuzzle } from "react-icons/io5"
 import { GoVerified } from "react-icons/go"
 import ccImage from "../assets/images/cc-no-bg.png"
+
 import Alert from "@mui/material/Alert"
 import AlertTitle from "@mui/material/AlertTitle"
-import headingLineDec from "../assets/images/heading-line-dec.png"
 
-/**
- * Dashboard component displaying user plan and installation instructions.
- *
- * @returns {JSX.Element} The rendered Dashboard component.
- */
 const Dashboard = () => {
   const { currentUser } = useAuth()
   const [userDetails, setUserDetails] = useState({
@@ -34,7 +31,7 @@ const Dashboard = () => {
     const getUserData = async () => {
       if (currentUser?.uid) {
         const userData = await fetchUserData(currentUser.uid)
-        console.log("user data: ", userData)
+        console.log("user data: " + userData)
         if (userData) {
           setUserDetails({
             planName: userData.planName,
@@ -66,40 +63,34 @@ const Dashboard = () => {
 
   return (
     <div>
-      {/* My Plan Section */}
+      {/* Increased separation for the My Plan section */}
       <div id="my-plan" className="container large-spacing">
         <h2 className="mb-3">התוכנית שלי</h2>
         <p>השתמשת ב {toMin(userDetails.timeLeft)} מתוך 120</p>
-        <div className="progress-bar-container">
-          <div className="progress-bar" style={{ width: `${percentageUsed}%` }}>
-            {`${percentageUsed.toFixed(0)}% Used`}
-          </div>
-        </div>
+        <ProgressBar
+          dir="ltr"
+          now={percentageUsed}
+          label={`${percentageUsed.toFixed(0)}% Used`}
+        />
       </div>
-
-      {/* Pricing Section */}
-      <div id="upgrade-plan" className="pricing-tables">
-        <div className="container">
-          <div className="row">
-            <div className="offset-lg-2">
-              <div className="section-heading">
+      <div id="updgrade-plan" class="pricing-tables">
+        <div class="container">
+          <div class="row">
+            <div class="offset-lg-2">
+              <div class="section-heading">
                 <h4>
-                  <em>שדרגו</em> עכשיו וקבלו עוד זמן תמלול
+                  יש לנו את <em>התמחור</em> הכי טוב שתקבלו
                 </h4>
-                <img
-                  className="headingLineDec"
-                  src={headingLineDec}
-                  alt="Heading Decoration"
-                />
+                <img src={headingLineDec} alt="" />
                 <p>לא משנה איזה סוג של עורך אתם, יש לנו תמחור פשוט עבורכם</p>
               </div>
             </div>
-            <div className="col-lg-4">
-              <div className="pricing-item-regular">
-                <span className="price">$12</span>
+            <div class="col-lg-4">
+              <div class="pricing-item-regular">
+                <span class="price">$12</span>
                 <h4>עורך מתחיל</h4>
-                <div className="icon">
-                  <img src={ccImage} alt="Basic Plan Icon" />
+                <div class="icon">
+                  <img src={ccImage} alt="" />
                 </div>
                 <ul>
                   <li>עד 30 דקות תמלול כל חודש</li>
@@ -107,17 +98,17 @@ const Dashboard = () => {
                   <li>כתוביות בעברית</li>
                   <li>תמיכה בפרימייר</li>
                 </ul>
-                <div className="border-button">
-                  <a href="#install">קנו עכשיו</a>
+                <div class="border-button">
+                  <a href="#">שדרג עכשיו</a>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
-              <div className="pricing-item-pro">
-                <span className="price">$25</span>
-                <h4 className="plan-name">עורך מקצועי</h4>
-                <div className="icon">
-                  <img src={ccImage} alt="Pro Plan Icon" />
+            <div class="col-lg-4">
+              <div class="pricing-item-pro">
+                <span class="price">$25</span>
+                <h4 class="plan-name">עורך מקצועי</h4>
+                <div class="icon">
+                  <img src={ccImage} alt="" />
                 </div>
                 <ul>
                   <li>עד 120 דקות תמלול כל חודש</li>
@@ -125,17 +116,17 @@ const Dashboard = () => {
                   <li>כתוביות בעברית</li>
                   <li>תמיכה בפרימייר</li>
                 </ul>
-                <div className="border-button">
-                  <a href="#install">קנו עכשיו</a>
+                <div class="border-button">
+                  <a href="#">שדרג עכשיו</a>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
-              <div className="pricing-item-regular">
-                <span className="price">$66</span>
-                <h4>עורך פרימיום</h4>
-                <div className="icon">
-                  <img src={ccImage} alt="Premium Plan Icon" />
+            <div class="col-lg-4">
+              <div class="pricing-item-regular">
+                <span class="price">$66</span>
+                <h4 class>עורך פרימיום</h4>
+                <div class="icon">
+                  <img src={ccImage} alt="" />
                 </div>
                 <ul>
                   <li>עד 500 דקות תמלול כל חודש</li>
@@ -143,30 +134,25 @@ const Dashboard = () => {
                   <li>כתוביות בעברית</li>
                   <li>תמיכה בפרימייר</li>
                 </ul>
-                <div className="border-button">
-                  <a href="#install">קנו עכשיו</a>
+                <div class="border-button">
+                  <a href="#">שדרג עכשיו</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Installation Instructions Section */}
-      <div id="install" className="installation-instructions section" dir="ltr">
-        <div className="container">
-          <div className="section-heading" dir="rtl">
+      <div id="install" class="installation-instructions section" dir="ltr">
+        <div class="container">
+          <div class="section-heading" dir="rtl">
             <h4>
               הוראות <em>התקנה</em>
             </h4>
-            <img
-              className="headingLineDec"
-              src={headingLineDec}
-              alt="Heading Decoration"
-            />
+            <img src={headingLineDec} alt="" />
+
             <Alert
-              severity="warning"
               className="container"
+              severity="warning"
               style={{ textAlign: "right", width: "400px", marginTop: "20px" }}
             >
               <div style={{ marginRight: "10px" }}>
@@ -185,7 +171,7 @@ const Dashboard = () => {
           >
             <div dir="rtl">
               <h3 className="vertical-timeline-element-title">
-                הורדת ZXP installer
+                הורדת ZXP installer{" "}
               </h3>
               <p>
                 הורידו והתקינו את ZXP Installer המתאים למערכת ההפעלה שלכם.
@@ -207,7 +193,7 @@ const Dashboard = () => {
                 <a href="https://download1655.mediafire.com/5qshizkvt3ngKCuUiWxzEh-h6j7d2HiVlmiVRCgqgzqkAdD2A_M6EtDJWiGLlmHPn5uHyJXOrg7pQU8uISiRrjfcubDJDEK8sj0XzOZqUVDWNTUSwTe0xS3H858DtC1rNHRJPgV0niqQZLtUTqz-HejGe-GlXhd3r6JxfcDbZrQ/2vuk9nlqe6wiiz5/com.offical.submachine.zxp">
                   &nbsp; להתקנה לחצו כאן
                 </a>
-              </p>
+              </p>{" "}
             </div>
           </VerticalTimelineElement>
           <VerticalTimelineElement
@@ -217,6 +203,7 @@ const Dashboard = () => {
           >
             <div dir="rtl">
               <h3 className="vertical-timeline-element-title">הטמעת הפלאגין</h3>
+
               <p>
                 פתחו את ה-ZXP INSTALLER וגררו את הפלאגין אליו.
                 <br />
@@ -232,7 +219,7 @@ const Dashboard = () => {
           >
             <div dir="rtl">
               <h3 className="vertical-timeline-element-title">
-                סיימתם את ההתקנה !
+                סיימתם את ההתקנה !{" "}
               </h3>
               <p>
                 לאחר הפעלת הפלאגין, התחברו עם השם משתמש והסיסמא שהשתמשתם בהרשמה.
@@ -257,9 +244,11 @@ const Dashboard = () => {
             </div>
           </Alert>
         </div>
-      </div>
+      </div>{" "}
     </div>
   )
 }
 
 export default Dashboard
+
+
