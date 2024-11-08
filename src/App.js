@@ -61,11 +61,11 @@ function App() {
             <ConditionalHeader />
             <ScrollToHash />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/submachine-website" element={<Home />} />
+              <Route path="/submachine-website/login" element={<Login />} />
+              <Route path="/submachine-website/signup" element={<Signup />} />
               <Route
-                path="/dashboard"
+                path="/submachine-website/dashboard"
                 element={
                   <PrivateRoute>
                     <Dashboard />
