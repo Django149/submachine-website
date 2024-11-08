@@ -11,8 +11,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
-  databaseURL:
-    "https://first-react-firebase-pro-9c51f-default-rtdb.europe-west1.firebasedatabase.app/",
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
 }
 
 const app = initializeApp(firebaseConfig)
