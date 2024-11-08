@@ -5,7 +5,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom"
-import { AuthProvider } from "./contexts/AuthContext" // Import the AuthProvider
+import { AuthProvider } from "./contexts/AuthContext"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
@@ -34,11 +34,13 @@ function ScrollToHash() {
 
 function ConditionalHeader() {
   const location = useLocation()
-  if (location.pathname === "/submachine-website") {
+  const path = location.pathname
+
+  if (path === "/") {
     return <HomeHeader />
   }
 
-  if (location.pathname === "/submachine-website/dashboard") {
+  if (path === "/dashboard") {
     return <DashboardHeader />
   }
 
@@ -51,21 +53,24 @@ function ConditionalHeader() {
  * @returns {JSX.Element} The rendered App component.
  */
 function App() {
+  // Define the base path for deployment; change only if deploying to a specific path
+  const basename = process.env.PUBLIC_URL || "/submachine-website"
+
   return (
     <div dir="rtl">
       {" "}
-      {/* Set RTL direction here */}
-      <Router>
+      {/* Set RTL direction */}
+      <Router basename={basename}>
         <ScrollToTop>
           <AuthProvider>
             <ConditionalHeader />
             <ScrollToHash />
             <Routes>
-              <Route path="/submachine-website" element={<Home />} />
-              <Route path="/submachine-website/login" element={<Login />} />
-              <Route path="/submachine-website/signup" element={<Signup />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route
-                path="/submachine-website/dashboard"
+                path="/dashboard"
                 element={
                   <PrivateRoute>
                     <Dashboard />
@@ -76,6 +81,7 @@ function App() {
           </AuthProvider>
         </ScrollToTop>
       </Router>
+      <Footer /> {/* Footer stays consistent across all routes */}
     </div>
   )
 }
